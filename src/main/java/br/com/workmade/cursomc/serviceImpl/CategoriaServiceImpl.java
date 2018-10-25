@@ -1,5 +1,6 @@
 package br.com.workmade.cursomc.serviceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,18 @@ public class CategoriaServiceImpl implements CategoriaService {
 
 	@Override
 	public Categoria salvar(Categoria categoria) {
+		return categoriaRepository.save(categoria);
+	}
+
+
+	@Override
+	public List<Categoria> salvarTodos(List<Categoria> categoria) {
+		return categoriaRepository.saveAll(categoria);
+	}
+
+
+	@Override
+	public Categoria salvarUm(Categoria categoria) {
 		return categoriaRepository.save(categoria);
 	}
 
