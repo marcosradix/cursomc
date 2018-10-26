@@ -33,7 +33,7 @@ public class CategoriaResources {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/categorias")
-	public ResponseEntity<List<Categoria>> save(@RequestBody List<Categoria> categorias) {
+	public ResponseEntity<List<Categoria>> saveAll(@RequestBody List<Categoria> categorias) {
 		 categoriaService.salvarTodos(categorias);
 		return ResponseEntity.ok().body(categorias);
 	}
