@@ -16,7 +16,6 @@ import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-/*@JsonIgnoreProperties(value = {"id", "sEcho", "sColumns", "new"})*/
 public class Produto implements Serializable {
 
 	private static final long serialVersionUID = -5766114679804701593L;
