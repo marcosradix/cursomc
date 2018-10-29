@@ -1,5 +1,6 @@
 package br.com.workmade.cursomc.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.workmade.cursomc.domain.Categoria;
+import br.com.workmade.cursomc.domain.Produto;
 import br.com.workmade.cursomc.service.CategoriaService;
+import br.com.workmade.cursomc.service.ProdutoService;
 
 @RestController
 @RequestMapping(value={"/"})
@@ -21,6 +24,9 @@ public class CategoriaResources {
 	
 	@Autowired
 	private CategoriaService categoriaService;
+	
+	@Autowired
+	private ProdutoService produtoService;
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -42,6 +48,11 @@ public class CategoriaResources {
 	
 	@RequestMapping(method=RequestMethod.POST, value="/categoria")
 	public ResponseEntity<Categoria> saveOne(@RequestBody Categoria categoria) {
+/*		List<Produto> produtos = new ArrayList<>();
+		categoria.getProdutos().forEach(produto -> {
+			produtos.add(produto);
+		});
+		 produtoService.salvarProdutos(produtos);*/
 		 categoriaService.salvarUm(categoria);
 		return ResponseEntity.ok().body(categoria);
 	}
