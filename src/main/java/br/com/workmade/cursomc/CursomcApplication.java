@@ -1,8 +1,8 @@
 package br.com.workmade.cursomc;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +14,7 @@ import br.com.workmade.cursomc.domain.Cidade;
 import br.com.workmade.cursomc.domain.Cliente;
 import br.com.workmade.cursomc.domain.Endereco;
 import br.com.workmade.cursomc.domain.Estado;
+import br.com.workmade.cursomc.domain.Pedido;
 import br.com.workmade.cursomc.domain.Produto;
 import br.com.workmade.cursomc.domain.enums.TipoCliente;
 import br.com.workmade.cursomc.service.CategoriaService;
@@ -57,7 +58,7 @@ public class CursomcApplication implements CommandLineRunner {
 		
 	
 		
-		Produto p1 = new Produto(null, "Computado", new BigDecimal(2000.00));
+		Produto p1 = new Produto(null, "Computador", new BigDecimal(2000.00));
 		Produto p2 = new Produto(null, "Impressora", new BigDecimal(800.00));
 		Produto p3 = new Produto(null, "Mouse", new BigDecimal(80.00));
 
@@ -94,6 +95,11 @@ public class CursomcApplication implements CommandLineRunner {
 		
 		clienteService.salvarUm(cli1);
 		enderecoService.salvarUm(e1);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy : HH:mm");
+		
+		Pedido ped1 = new Pedido(null, sdf.parse("30/09/2017 10:32"), cli1, e1);
+		Pedido ped2 = new Pedido(null, sdf.parse("10/10/2017 14:32"), cli1, e1);
+		
 
 		
 		
