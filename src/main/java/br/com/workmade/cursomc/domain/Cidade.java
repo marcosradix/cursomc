@@ -24,8 +24,7 @@ public class Cidade  implements Serializable{
 	
 	public Cidade() {}
 
-	
-	
+
 	public Cidade(Integer id, String nome, Estado estado) {
 		super();
 		this.id = id;
@@ -82,6 +81,12 @@ public class Cidade  implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Cidade [id=" + id + ", nome=" + nome + ", estado=" + estado + "]";
 	}
 	
 	

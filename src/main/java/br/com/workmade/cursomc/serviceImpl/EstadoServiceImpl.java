@@ -6,22 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.workmade.cursomc.domain.Estado;
+import br.com.workmade.cursomc.repositories.EstadoRepository;
 import br.com.workmade.cursomc.service.EstadoService;
 @Service
 public class EstadoServiceImpl implements EstadoService {
 	
 	
 	@Autowired
-	private EstadoService estadoService;
+	private EstadoRepository estadoRepository;
 
 	@Override
 	public Estado salvar(Estado estado) {
-		return estadoService.salvar(estado);
+		return estadoRepository.save(estado);
 	}
 
 	@Override
 	public List<Estado> salvarTodos(List<Estado> estados) {
-		return estadoService.salvarTodos(estados);
+		return estadoRepository.saveAll(estados);
 	}
 
 }

@@ -6,23 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.workmade.cursomc.domain.Cidade;
+import br.com.workmade.cursomc.repositories.CidadeRepository;
 import br.com.workmade.cursomc.service.CidadeService;
 @Service
 public class CidadeServiceImpl implements CidadeService {
 
 	@Autowired
-	private CidadeService cidadeService;
+	private CidadeRepository cidaderepository;
 	
 	
 	@Override
 	public Cidade salvar(Cidade cidade) {
-		return cidadeService.salvar(cidade);
+		return cidaderepository.save(cidade);
 	}
 
 
 	@Override
 	public List<Cidade> salvarTodos(List<Cidade> cidades) {
-		return cidadeService.salvarTodos(cidades);
+		return cidaderepository.saveAll(cidades);
 	}
 
 }

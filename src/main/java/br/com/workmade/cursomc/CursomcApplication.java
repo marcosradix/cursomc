@@ -1,12 +1,25 @@
 package br.com.workmade.cursomc;
 
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.com.workmade.cursomc.domain.Categoria;
+import br.com.workmade.cursomc.domain.Cidade;
+import br.com.workmade.cursomc.domain.Cliente;
+import br.com.workmade.cursomc.domain.Endereco;
+import br.com.workmade.cursomc.domain.Estado;
+import br.com.workmade.cursomc.domain.Produto;
+import br.com.workmade.cursomc.domain.enums.TipoCliente;
 import br.com.workmade.cursomc.service.CategoriaService;
 import br.com.workmade.cursomc.service.CidadeService;
+import br.com.workmade.cursomc.service.ClienteService;
+import br.com.workmade.cursomc.service.EnderecoService;
 import br.com.workmade.cursomc.service.EstadoService;
 import br.com.workmade.cursomc.service.ProdutoService;
 
@@ -29,16 +42,16 @@ public class CursomcApplication implements CommandLineRunner {
 	@Autowired
 	private EstadoService estadoService;
 	
-/*	@Autowired
+	@Autowired
 	private ClienteService clienteService;
 	
 	@Autowired
-	private EnderecoService enderecoService;*/
+	private EnderecoService enderecoService;
 
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*	
+			
 		Categoria cat1 = new Categoria(null, "Infortrônica");
 		Categoria cat2 = new Categoria(null, "Escritório");
 		
@@ -47,9 +60,7 @@ public class CursomcApplication implements CommandLineRunner {
 		Produto p1 = new Produto(null, "Computado", new BigDecimal(2000.00));
 		Produto p2 = new Produto(null, "Impressora", new BigDecimal(800.00));
 		Produto p3 = new Produto(null, "Mouse", new BigDecimal(80.00));
-	produtoService.salvarProdutos(Arrays.asList(p1, p2, p3));
-		
-		
+
 		
 		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
 		cat2.getProdutos().addAll(Arrays.asList(p2));
@@ -76,17 +87,14 @@ public class CursomcApplication implements CommandLineRunner {
 		estadoService.salvarTodos(Arrays.asList(estado1, estado2));
 		cidadeService.salvarTodos(Arrays.asList(cidade1, cidade2, cidade3));
 
-	
-	/*	Estado est1 = new Estado(null, "Minas Gerais");
-		Cidade c1 = new Cidade(null, "Uberlândia", est1);
 		Cliente cli1 = new Cliente(null, "Maria Silva", "maria.silva@gmail.com","36378912377",TipoCliente.PESSOA_FISICA);
 		cli1.getTelefones().addAll(Arrays.asList("27363323","93838393"));
-		Endereco e1 = new Endereco(null, "Rua flores", "300", "Apto 303", "Jardim", "38220834", cli1, c1 );
+		Endereco e1 = new Endereco(null, "Rua flores", "300", "Apto 303", "Jardim", "38220834", cli1, cidade1);
 		cli1.getEnderecos().addAll(Arrays.asList(e1));
 		
 		clienteService.salvarUm(cli1);
-		enderecoService.salvarUm(e1);*/
-		
+		enderecoService.salvarUm(e1);
+
 		
 		
 	}
