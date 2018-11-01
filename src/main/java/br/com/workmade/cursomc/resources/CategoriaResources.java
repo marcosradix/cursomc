@@ -48,11 +48,6 @@ public class CategoriaResources {
 	
 	@RequestMapping(method=RequestMethod.POST, value="/categoria")
 	public ResponseEntity<Categoria> saveOne(@RequestBody Categoria categoria) {
-/*		List<Produto> produtos = new ArrayList<>();
-		categoria.getProdutos().forEach(produto -> {
-			produtos.add(produto);
-		});
-		 produtoService.salvarProdutos(produtos);*/
 		 categoriaService.salvarUm(categoria);
 		return ResponseEntity.ok().body(categoria);
 	}
